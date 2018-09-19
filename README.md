@@ -65,12 +65,6 @@ Default value: `www/static`
 
 The directory path to save static content when content saving is enabled.
 
-### options.readySelector
-Type: `String|Boolean`
-Default value: `false`
-
-The selector that the web crawler will look for a `data-status` attribute with the value `ready`.
-
 #### options.render
 Type: `Boolean`
 Default value: `false`
@@ -142,6 +136,12 @@ Type: `Array`
 Default value: `[]`
 
 Define relative URI patterns to exclude from being crawled. This is useful for ignoring file downloads.
+
+#### options.phantomOptions
+Type: `Object`
+Default value: `{}`
+
+The additional parameters that PhantomJS will use.
 
 ### Usage Examples
 
@@ -230,6 +230,18 @@ Rewrite rules for fragment route to static content:
 </IfModule>
 ```
 
+#### phantomOptions
+
+```js
+grunt.initConfig({
+  "crawl": {
+    "myapp": {
+      "baseUrl": "http://example.com",
+      "phantomOptions": "{parameters: {'ssl-protocol': 'tlsv1', 'ignore-ssl-errors': 'true'}}"
+    }
+  }
+});
+```
 
 ## Contributing
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).

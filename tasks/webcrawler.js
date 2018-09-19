@@ -39,9 +39,9 @@ function Crawler(url, depth, options) {
  *
  * @returns {this}
  */
-Crawler.prototype.startPhantom = function() {
+Crawler.prototype.startPhantom = function(options) {
 
-    phantom.create(this.createPhantom);
+    phantom.create(this.createPhantom, options);
     return this;
 };
 

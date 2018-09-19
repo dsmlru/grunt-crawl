@@ -32,7 +32,8 @@ module.exports = function(grunt) {
             depth: 4,
             viewportWidth: 1280,
             viewportHeight: 1024,
-            waitDelay: 5000
+            waitDelay: 5000,
+            phantomOptions: {}
         });
 
         done = this.async();
@@ -43,7 +44,7 @@ module.exports = function(grunt) {
             // Configure the crawler options, first url, and node-phantom.
             crawler
                 .addUrl(options.baseUrl, 0)
-                .startPhantom();
+                .startPhantom(options.phantomOptions);
 
             finishCrawl = function() {
 
